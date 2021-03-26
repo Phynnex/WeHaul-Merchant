@@ -136,13 +136,6 @@ export default function TripsContent() {
             label="Completed Trips"
             {...a11yProps(3)}
           />
-          <Tab
-            className={clsx(classes.transform, {
-              [classes.cancelledTrips]: value === 4,
-            })}
-            label="Cancelled Trips"
-            {...a11yProps(3)}
-          />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -156,9 +149,6 @@ export default function TripsContent() {
       </TabPanel>
       <TabPanel value={value} index={3}>
         <CompletedTrips />
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        <CancelledTrips />
       </TabPanel>
     </div>
   );

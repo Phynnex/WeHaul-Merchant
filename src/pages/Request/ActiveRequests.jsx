@@ -22,36 +22,55 @@ import axios from 'axios';
 import Paper from '@material-ui/core/Paper';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { FaEye } from 'react-icons/fa';
-import { FaTelegramPlane } from 'react-icons/fa';
+import { FiEdit } from "react-icons/fi";
+import { RiChatVoiceLine } from "react-icons/ri";
+import { MdClear } from "react-icons/md";
 // import { usersApiEndPoint } from "../../utils/api";
 // import Preloader from "../../components/Preloader/Preloader";
 // import MetaDecorator from "../../components/MetaDecorator/MetaDecorator";
 // import { setSnackbar } from "../../redux/actions/uiActions";
 const headCells = [
   {
-    id: 'ID',
-    label: 'ID',
+    id: "ID",
+    label: "ID",
   },
 
   {
-    id: 'Origin',
-    label: 'Origin',
+    id: "Pick Up",
+    label: "Pick Up",
+  },
+
+  {
+    id: "Drop Off",
+    label: "Drop Off",
   },
   {
-    id: 'Destination',
-    label: 'Destination',
+    id: "Vehicle Type",
+    label: "Vehicle Type",
   },
   {
-    id: 'Status',
-    label: 'Status',
+    id: "Goods Description",
+    label: "Goods Description",
   },
-  { id: 'Vehicle Type', label: 'Vehicle Type' },
-  { id: 'Pickup Date', label: 'Pickup Date' },
-  { id: 'Amount', label: 'Amount' },
   {
-    id: 'Action',
-    label: 'Action',
+    id: "Customer Name",
+    label: "Customer Name",
+  },
+  {
+    id: "Pickup Date",
+    label: "Pickup Date",
+  },
+  {
+    id: "Status",
+    label: "Status",
+  },
+  {
+    id: "Estimated Price",
+    label: "Estimated Price",
+  },
+  {
+    id: "Action",
+    label: "Action",
   },
 ];
 
@@ -80,99 +99,99 @@ function EnhancedTableHead() {
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: theme.spacing(0),
-    width: '100%',
+    width: "100%",
   },
   capitalize: {
-    textTransform: 'capitalize',
+    textTransform: "capitalize",
   },
   paper: {
-    width: '100%',
+    width: "100%",
     marginBottom: theme.spacing(2),
   },
   title: {
     fontWeight: 400,
-    flex: '1 1 100%',
-    textAlign: 'center',
+    flex: "1 1 100%",
+    textAlign: "center",
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
   },
   formRoot: {
-    padding: '2px 4px',
-    display: 'flex',
-    alignItems: 'center',
+    padding: "2px 4px",
+    display: "flex",
+    alignItems: "center",
     maxWidth: 400,
-    margin: '10px auto',
+    margin: "10px auto",
   },
 
   table: {
     minWidth: 750,
   },
   categoryStyle: {
-    textTransform: 'capitalize',
+    textTransform: "capitalize",
   },
   visuallyHidden: {
     border: 0,
-    clip: 'rect(0 0 0 0)',
+    clip: "rect(0 0 0 0)",
     height: 1,
     margin: -1,
-    overflow: 'hidden',
+    overflow: "hidden",
     padding: 0,
-    position: 'absolute',
+    position: "absolute",
     top: 20,
     width: 1,
   },
   userImageStyle: {
-    borderRadius: '50%',
-    width: '35px',
-    height: '35px',
-    objectFit: 'cover',
+    borderRadius: "50%",
+    width: "35px",
+    height: "35px",
+    objectFit: "cover",
   },
   statusOnGoingBtn: {
     padding: theme.spacing(1, 1),
-    width: '100px',
-    display: 'flex',
-    justifyContent: 'center',
-    borderRadius: '5%',
+    width: "100px",
+    display: "flex",
+    justifyContent: "center",
+    borderRadius: "5%",
     background: theme.palette.green.main,
-    color: 'white',
+    color: "white",
   },
   statusCancelledBtn: {
     padding: theme.spacing(1, 1),
-    width: '100px',
-    display: 'flex',
-    justifyContent: 'center',
-    borderRadius: '5%',
+    width: "100px",
+    display: "flex",
+    justifyContent: "center",
+    borderRadius: "5%",
     background: theme.palette.secondary.main,
-    color: 'white',
+    color: "white",
   },
   textColor: {
     color: theme.palette.primary.main,
-    fontFamily: 'Montserrat',
-    fontWeight: '500',
+    fontFamily: "Montserrat",
+    fontWeight: "500",
   },
   tableHeaderText: {
     color: theme.palette.primary.main,
-    fontFamily: 'Montserrat',
-    fontWeight: 'bold',
-  },
-  sendButton: {
-    padding: theme.spacing(2, 1),
-    backgroundColor: theme.palette.primary.main,
-    borderRadius: 3,
-    // padding: -10,
-    height: 16,
-    width: '40px',
+    fontFamily: "Montserrat",
+    fontWeight: "bold",
   },
   editButton: {
-    padding: theme.spacing(2, 1),
+    padding: "4px 2px",
     borderRadius: 3,
-    height: 16,
-    width: '40px',
-    backgroundColor: theme.palette.yellow.main,
+    backgroundColor: "#FFBB00",
+  },
+  chatButton: {
+    padding: "4px 2px",
+    backgroundColor: "#40D192",
+    borderRadius: 3,
+  },
+  cancelButton: {
+    padding: "4px 2px",
+    backgroundColor: "#FF1B00",
+    borderRadius: 3,
   },
   actionContainer: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
   },
 }));
 
@@ -257,7 +276,7 @@ export default function ActiveRequests() {
           >
             <EnhancedTableHead classes={classes} />
             <TableBody>
-              {[...new Array(4)].map((dev, index) => {
+              {[...new Array(2)].map((dev, index) => {
                 return (
                   <TableRow
                     className={classes.textColor}
@@ -266,36 +285,60 @@ export default function ActiveRequests() {
                     key={index}
                   >
                     <TableCell className={classes.textColor} align="left">
-                      bgoGuWJtrjiSTR8LjwoA
+                      bgoGuWJtA7
                     </TableCell>
                     <TableCell className={classes.textColor} align="left">
-                      Ajah Market Lagos Lekki, Nigeria
+                      Ajah Market Lagos, Lekki, Nigeria
+                    </TableCell>
+                    <TableCell className={classes.textColor} align="left">
+                      Ikeja City Mall, Obafemi Awolowo Way, Ikeja, Nigeria
                     </TableCell>
                     <TableCell className={classes.textColor} align="left">
                       {/* userImageStyle */}
                       {/* {row.lastname} */}
-                      Ikeja City Mall, Obafemi Awolowo Way, Ikeja Nigeria
+                      Lorry
                     </TableCell>
                     <TableCell className={classes.textColor}>
                       {/* {row.phone ? row.phone : "Not Provided"} */}
-                      {index >= 0 && (
+                      Cake delivery
+                    </TableCell>
+                    <TableCell className={classes.textColor}>
+                      {/* {row.phone ? row.phone : "Not Provided"} */}
+                      John Doe
+                    </TableCell>
+                    <TableCell className={classes.textColor}>
+                      {/* {row.phone ? row.phone : "Not Provided"} */}
+                      Aug 1,2021
+                    </TableCell>
+                    <TableCell className={classes.textColor}>
+                      {/* {row.phone ? row.phone : "Not Provided"} */}
+                      {index === 0 && (
                         <Box className={classes.statusOnGoingBtn}>
-                          {' '}
+                          {" "}
+                          <Typography variant="caption">Active</Typography>
+                        </Box>
+                      )}
+                      {index === 1 && (
+                        <Box className={classes.statusCancelledBtn}>
+                          <Typography variant="caption">Cancelled</Typography>
+                        </Box>
+                      )}
+                      {index === 2 && (
+                        <Box className={classes.statusCancelledBtn}>
+                          <Typography variant="caption">Active</Typography>
+                        </Box>
+                        //   <Typography variant="caption">Cancelled</Typography>
+                      )}
+                      {index === 3 && (
+                        <Box className={classes.statusOnGoingBtn}>
+                          {" "}
                           <Typography variant="caption">Active</Typography>
                         </Box>
                       )}
                     </TableCell>
                     <TableCell className={classes.textColor}>
                       {/* {row.phone ? row.phone : "Not Provided"} */}
-                      Lorry
-                    </TableCell>
-                    <TableCell className={classes.textColor}>
-                      {/* {row.phone ? row.phone : "Not Provided"} */}
-                      Aug 1, 2021
-                    </TableCell>
-                    <TableCell className={classes.textColor}>
-                      {/* {row.phone ? row.phone : "Not Provided"} */}
-                      41836.00
+                      N18,000
                     </TableCell>
                     <TableCell align="left">
                       <Box className={classes.actionContainer}>
@@ -304,11 +347,15 @@ export default function ActiveRequests() {
                           variant="contained"
                           color="primary"
                         >
-                          <FaEye size="32" color="#FFFFFF" />
+                          <FiEdit size="18" color="#FFFFFF" />
                         </IconButton>
                         &nbsp;&nbsp;
-                        <IconButton className={classes.sendButton}>
-                          <FaTelegramPlane size="30" color="#FFFFFF" />
+                        <IconButton className={classes.chatButton}>
+                          <RiChatVoiceLine size="18" color="#FFFFFF" />
+                        </IconButton>
+                        &nbsp;&nbsp;
+                        <IconButton className={classes.cancelButton}>
+                          <MdClear size="18" color="#FFFFFF" />
                         </IconButton>
                       </Box>
                     </TableCell>

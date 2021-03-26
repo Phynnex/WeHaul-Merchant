@@ -7,15 +7,24 @@ import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import Box from "@material-ui/core/Box";
 import LineChart from "../../components/LineChart";
-import GirlPic from "../../assets/girl.jpg";
 import MetaDecorator from "../../components/MetaDecorator/MetaDecorator";
 import CustomCard from "../../components/CustomCard/CustomCard";
 import TimeLineActivities from "../../components/TimeLineActivities/TimeLineActivities";
 import totalTrip from "../../assets/TotalIcon.svg";
 import canceledIcon from "../../assets/CancelIcon.svg";
-import checkedIcon from "../../assets/CheckedIcon.svg";
-import tripIcon from "../../assets/Trip_Icon.svg";
-import ticket from "../../assets/supportticket.svg";
+import completeIcon from "../../assets/CompleteIcon.svg";
+import ActiveIcon from "../../assets/ActiveIcon.svg";
+import Button from "@material-ui/core/Button";
+import RequestIcon from "../../assets/RequestIcon.svg";
+import Money from "../../assets/money.svg";
+import { GiWallet } from "react-icons/gi";
+
+
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: theme.spacing(10),
@@ -137,6 +146,52 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
   },
+  cardStyles: {
+    display: "flex",
+    justifyContent: "center",
+    minWidth: 275,
+    "&:hover": {
+      backgroundColor: "#40D192",
+      color: "#FFFFFF",
+    },
+  },
+  requestIcon: {
+    fontSize: "10px !important",
+    "&:hover": {
+      color: "#FBFCFF !important",
+    },
+  },
+  requestCard: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  btnRequest: {
+    textTransform: "initial",
+    fontSize: "18px",
+    color: "#707070",
+    marginTop: "-10px",
+    "&:hover": {
+      color: "#FFFFFF",
+    },
+  },
+  cardStyles2: {
+    minWidth: 275,
+    marginTop: "20px",
+  },
+  btnFundWallet: {
+    textTransform: "initial",
+    fontSize: "22px",
+    fontWeight: "300",
+    background: "#113E82",
+    color: "#FFFFFF",
+    padding: "4px 0",
+    width: "100%",
+    marginTop: "20px",
+    "&:hover": {
+      backgroundColor: "#40D192",
+    },
+  },
 }));
 
 function Homepage() {
@@ -144,8 +199,8 @@ function Homepage() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
   const decorator = {
-    title: "Wehaul - Admin Dashboard",
-    description: "Admin dashboard",
+    title: "Wehaul - Merchant Dashboard",
+    description: "Merchant dashboard",
   };
 
   return (
@@ -163,7 +218,7 @@ function Homepage() {
           <CustomCard
             cardBackground="#FFBB00"
             title="Total Trips"
-            count={110}
+            count={22}
             icon={totalTrip}
           />
         </Grid>
@@ -172,11 +227,11 @@ function Homepage() {
             cardBackground="#40D192"
             title="Completed Trips"
             count={48}
-            icon={checkedIcon}
+            icon={completeIcon}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <CustomCard title="Active Trips" count={28} icon={tripIcon} />
+          <CustomCard title="Active Trips" count={28} icon={ActiveIcon} />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <CustomCard
@@ -197,9 +252,54 @@ function Homepage() {
           </Paper>
         </Grid>
         <Grid item xs={6}>
-          <Paper className={classes.charts}>
-            <LineChart />
-          </Paper>
+          <Card className={classes.cardStyles}>
+            <div className={classes.requestCard}>
+              <CardContent>
+                <img
+                  src={RequestIcon}
+                  alt="request icon"
+                  className={classes.requestIcon}
+                />
+              </CardContent>
+              <CardActions>
+                <Button size="small" className={classes.btnRequest}>
+                  Request a Vehicle
+                </Button>
+              </CardActions>
+            </div>
+          </Card>
+          <Card className={classes.cardStyles2}>
+            <CardContent
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                padding: "20px 40px 0",
+              }}
+            >
+              <div>
+                <Typography>Wallet Balance</Typography>
+                <Typography
+                  style={{
+                    fontSize: "48px",
+                    color: "#113E82",
+                    fontWeight: "bold",
+                  }}
+                >
+                  N28,000
+                </Typography>
+              </div>
+              <div>
+                <img src={Money} alt="money" />
+              </div>
+            </CardContent>
+          </Card>
+          <Button
+            variant="outlined"
+            startIcon={<GiWallet style={{fontSize:"30px", marginRight:"40px"}}  />}
+            className={classes.btnFundWallet}
+          >
+            Fund Wallet
+          </Button>
         </Grid>
       </Grid>
 
@@ -224,45 +324,8 @@ function Homepage() {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <Paper>
-            <Box className={classes.transactionBox}>
-              <div>
-                <Typography
-                  className={classes.transactionValueText}
-                  color="primary"
-                  variant="h3"
-                  component="h4"
-                >
-                  18
-                </Typography>
-                <Typography component="h4" color="primary" variant="body2">
-                  Transactions
-                </Typography>
-              </div>
-              <div>
-                <Typography
-                  className={classes.percentageText}
-                  color="primary"
-                  variant="h2"
-                >
-                  16.75%
-                </Typography>
-              </div>
-            </Box>
-          </Paper>
-          <br />
-
           <Paper className={classes.ticketPaper}>
             <Box p={2} mb={2} className={classes.supportTicketContent}>
-              <img
-                style={{
-                  marginLeft: "15px",
-                  marginTop: "-4px",
-                  height: "20px",
-                }}
-                src={ticket}
-                alt="support ticket"
-              />
               {/* <HiOutlineTicket size="28" style={{ color: "#113E82" }} /> &nbsp; */}
               <Typography
                 className={classes.supportTicketStyle}
@@ -270,7 +333,7 @@ function Homepage() {
                 color="primary"
                 variant="body1"
               >
-                Support Tickets
+                Pending Trips
               </Typography>
             </Box>
             <Divider />
@@ -284,19 +347,13 @@ function Homepage() {
                   mb={1}
                 >
                   <div className={classes.supportUser}>
-                    <img
-                      src={GirlPic}
-                      className={classes.clientImage}
-                      alt="Client"
-                    />
-
                     <div className={classes.supportUserDetail}>
                       <Typography
                         className={classes.supportTitle}
                         variant="body1"
                         color="primary"
                       >
-                        The Client Compliant
+                        Request title goes in here
                       </Typography>
                       <div style={{ overflow: "hidden" }}>
                         <Typography
@@ -305,7 +362,7 @@ function Homepage() {
                           className={classes.supportText}
                           noWrap
                         >
-                          Lorem ipsum dolor sit...
+                          08.02.2021
                         </Typography>
                       </div>
                     </div>
@@ -314,14 +371,32 @@ function Homepage() {
                   <div className={classes.statusDiv}>
                     <div className={classes.float}>
                       <div className={classes.supportStatus}>Pending</div>
-                      <Typography align="left" variant="body2">
-                        5 days ago
-                      </Typography>
                     </div>
                   </div>
                 </Box>
               );
             })}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "40px",
+                marginBottom: "40px",
+              }}
+            >
+              <Button
+                variant="outlined"
+                style={{
+                  textTransform: "initial",
+                  padding: "4px 120px",
+                  fontSize: "18px",
+                  color: "#40D192",
+                  border: "1px solid #40D192",
+                }}
+              >
+                Load More
+              </Button>
+            </div>
           </Paper>
         </Grid>
       </Grid>

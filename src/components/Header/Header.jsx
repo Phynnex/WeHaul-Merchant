@@ -228,8 +228,8 @@ function Header(props) {
                 className={classes.title}
                 variant="body1"
               >
-                Welcome Admin
-              </Typography>{' '}
+                Welcome Joseph
+              </Typography>{" "}
               <div className={classes.grow} />
               <div className={classes.search}>
                 <div className={classes.searchIcon}>
@@ -242,12 +242,12 @@ function Header(props) {
                     root: classes.inputRoot,
                     input: classes.inputInput,
                   }}
-                  inputProps={{ 'aria-label': 'search' }}
+                  inputProps={{ "aria-label": "search" }}
                 />
               </div>
               <div className={classes.grow} />
               <div className={classes.icons}>
-                {' '}
+                {" "}
                 <IconButton
                   aria-label="show 4 new mails"
                   color="default"
@@ -256,7 +256,7 @@ function Header(props) {
                   <Badge badgeContent={4} color="primary">
                     <AiOutlineWechat size="28px" />
                   </Badge>
-                </IconButton>{' '}
+                </IconButton>{" "}
                 &nbsp;
                 <IconButton
                   aria-label="show 17 new notifications"
@@ -266,7 +266,7 @@ function Header(props) {
                   <Badge badgeContent={7} color="secondary">
                     <NotificationsActiveIcon />
                   </Badge>
-                </IconButton>{' '}
+                </IconButton>{" "}
               </div>
               <section
                 className={classes.userSection}
@@ -293,7 +293,7 @@ function Header(props) {
                     variant="caption"
                     noWrap
                   >
-                    {formatEmail('eniolarobins@gmail.com')}
+                    {formatEmail("eniolarobins@gmail.com")}
                   </Typography>
                 </div>
               </section>

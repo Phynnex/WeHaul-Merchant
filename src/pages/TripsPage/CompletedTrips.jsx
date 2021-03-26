@@ -23,39 +23,47 @@ import Paper from "@material-ui/core/Paper";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { FaEye } from "react-icons/fa";
-import { FaTelegramPlane } from "react-icons/fa";
+import { RiChatVoiceLine } from "react-icons/ri";
+
 // import { usersApiEndPoint } from "../../utils/api";
 // import Preloader from "../../components/Preloader/Preloader";
 // import MetaDecorator from "../../components/MetaDecorator/MetaDecorator";
 // import { setSnackbar } from "../../redux/actions/uiActions";
 const headCells = [
   {
-    id: "ID",
-    label: "ID",
+    id: "Pick Up",
+    label: "Pick Up",
   },
   {
-    id: "User",
-    label: "User",
+    id: "Drop Off",
+    label: "Drop Off",
   },
   {
-    id: "Origin",
-    label: "Origin",
+    id: "Driver",
+    label: "Driver",
   },
   {
-    id: "Destination",
-    label: "Destination",
-  },
-  {
-    id: "Processed by",
-    label: "Processed by",
+    id: "Processed By",
+    label: "Processed By",
   },
   {
     id: "Status",
     label: "Status",
   },
-  { id: "Vehicle Type", label: "Vehicle Type" },
+  {
+    id: "Vehicle Type",
+    label: "Vehicle Type",
+  },
+  {
+    id: "Goods Description",
+    label: "Goods Description",
+  },
+  {
+    id: "Weight",
+    label: "Weight",
+  },
   { id: "Pickup Date", label: "Pickup Date" },
-  { id: "Amount", label: "Amount" },
+  { id: "Total Amount", label: "Total Amount" },
   {
     id: "Action",
     label: "Action",
@@ -143,19 +151,46 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.primary.main,
     color: "white",
   },
+  statusPendingBtn: {
+    padding: theme.spacing(1, 1),
+    width: "100px",
+    display: "flex",
+    justifyContent: "center",
+    borderRadius: "5%",
+    background: theme.palette.yellow.main,
+    color: "white",
+  },
+  statusOnGoingBtn: {
+    padding: theme.spacing(1, 1),
+    width: "100px",
+    display: "flex",
+    justifyContent: "center",
+    borderRadius: "5%",
+    background: theme.palette.green.main,
+    color: "white",
+  },
+  statusCancelledBtn: {
+    padding: theme.spacing(1, 1),
+    width: "100px",
+    display: "flex",
+    justifyContent: "center",
+    borderRadius: "5%",
+    background: theme.palette.secondary.main,
+    color: "white",
+  },
   textColor: {
-    color: theme.palette.primary.main,
+    color: "#6B6B6B",
     fontFamily: "Montserrat",
     fontWeight: "500",
   },
   tableHeaderText: {
-    color: theme.palette.primary.main,
+    color: "#4B70AA",
     fontFamily: "Montserrat",
     fontWeight: "bold",
   },
   sendButton: {
     padding: theme.spacing(2, 1),
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: "#40D192",
     borderRadius: 3,
     // padding: -10,
     height: 16,
@@ -264,9 +299,9 @@ export default function CompletedTrips() {
                     key={index}
                   >
                     <TableCell className={classes.textColor} align="left">
-                      bgoGuWJtrjiSTR8LjwoA
+                      Ajah Market Lagos, Lekki, Nigeria
                     </TableCell>
-                    <TableCell className={classes.textColor}>
+                    <TableCell className={classes.textColor} align="left">
                       {/* {row.image && (
                           <img
                             src={row.image}
@@ -275,32 +310,54 @@ export default function CompletedTrips() {
                           />
                         )} */}
                       {/* {!row.image && ( */}
-                      Eniola Roland
+                      Ikeja City Mall, Obafemi Awolowo Way, Ikeja, Nigeria
                       {/* )} */}
                     </TableCell>
                     <TableCell className={classes.textColor} align="left">
-                      Ajah Market Lagos Lekki, Nigeria
+                      Driver User
                     </TableCell>
                     <TableCell className={classes.textColor} align="left">
-                      {/* userImageStyle */}
-                      {/* {row.lastname} */}
-                      Ikeja City Mall, Obafemi Awolowo Way, Ikeja Nigeria
-                    </TableCell>
-                    <TableCell className={classes.textColor} align="left">
-                      {/* userImageStyle */}
-                      {/* {row.lastname} */}
                       Eniola Roland
                     </TableCell>
-
                     <TableCell className={classes.textColor}>
-                      <Box className={classes.statusCompletedBtn}>
-                        <Typography variant="caption">Completed</Typography>
-                      </Box>
+                      {/* {row.phone ? row.phone : "Not Provided"} */}
+                      {index === 0 && (
+                        <Box className={classes.statusOnGoingBtn}>
+                          <Typography variant="caption">on Going</Typography>
+                        </Box>
+                      )}
+                      {index === 1 && (
+                        <Box className={classes.statusPendingBtn}>
+                          <Typography variant="caption">Pending</Typography>
+                        </Box>
+                      )}
+                      {index === 2 && (
+                        <Box className={classes.statusCancelledBtn}>
+                          <Typography variant="caption">Cancelled</Typography>
+                        </Box>
+                      )}
+                      {index === 3 && (
+                        <Box className={classes.statusCompletedBtn}>
+                          <Typography variant="caption">Completed</Typography>
+                        </Box>
+                      )}
                     </TableCell>
                     <TableCell className={classes.textColor}>
                       {/* {row.phone ? row.phone : "Not Provided"} */}
                       Lorry
                     </TableCell>
+
+                    <TableCell className={classes.textColor} align="left">
+                      {/* userImageStyle */}
+                      {/* {row.lastname} */}
+                      Cake delivery
+                    </TableCell>
+                    <TableCell className={classes.textColor} align="left">
+                      {/* userImageStyle */}
+                      {/* {row.lastname} */}
+                      02
+                    </TableCell>
+
                     <TableCell className={classes.textColor}>
                       {/* {row.phone ? row.phone : "Not Provided"} */}
                       Aug 1, 2021
@@ -320,7 +377,7 @@ export default function CompletedTrips() {
                         </IconButton>
                         &nbsp;&nbsp;
                         <IconButton className={classes.sendButton}>
-                          <FaTelegramPlane size="30" color="#FFFFFF" />
+                          <RiChatVoiceLine size="18" color="#FFFFFF" />
                         </IconButton>
                       </Box>
                     </TableCell>

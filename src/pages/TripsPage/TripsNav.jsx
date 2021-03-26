@@ -1,14 +1,19 @@
-import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Divider from "@material-ui/core/Divider";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import IconButton from "@material-ui/core/IconButton";
-import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
-import Button from "@material-ui/core/Button";
-import { BiWallet } from "react-icons/bi";
-import AddRoutes from "../../components/AddRoutesDialog/AddRoutesDialog";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import InputBase from '@material-ui/core/InputBase';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
+import SearchIcon from '@material-ui/icons/Search';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import AddIcon from '@material-ui/icons/Add';
+// import AddRoutes from '../../components/AddRoutesDialog/AddRoutesDialog';
+// import AddNewMerchantForm from './AddNewMerchant';
+import { useHistory } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,6 +26,15 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
     flex: 1,
   },
+  searchContent: {
+    // marginLeft: theme.spacing(1),
+    display: "flex",
+    border: `1px solid ${theme.palette.primary.main}`,
+    width: 300,
+    height: "40px",
+    marginLeft: "35px",
+    borderRadius: "3px",
+  },
   iconButton: {
     padding: 10,
     color: theme.palette.primary.main,
@@ -29,50 +43,59 @@ const useStyles = makeStyles((theme) => ({
     height: 20,
     margin: 4,
   },
-  tripCount: {
+  routeCount: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     flexWrap: "wrap",
-    height: 25,
+    height: 30,
     fontWeight: "bold",
     width: 40,
     margin: 4,
-    backgroundColor: theme.palette.grey[300],
-    color: theme.palette.grey[600],
+    color: theme.palette.primary.main,
     borderRadius: "3px",
-    border: `1px solid ${theme.palette.grey[500]}`,
-    marginLeft: "35px",
+    border: `1px solid ${theme.palette.primary.main}`,
+    marginLeft: "25px",
   },
   textLabel: {
-    marginLeft: "18px",
+    marginLeft: "15px",
     fontWeight: "bold",
     color: theme.palette.primary.main,
   },
+  addNewTrip: {
+    marginRight: "40px",
+    textTransform: "capitalize",
+    color: "#FFFFFF",
+    backgroundColor: theme.palette.primary.main,
+    "&:hover": {
+      backgroundColor: theme.palette.green.main,
+    },
+  },
   exportBtn: {
-    marginRight: "30px",
-    width: "100px",
+    padding: theme.spacing(1, 5),
+    border: "1px solid grey",
+    marginLeft: "15px",
+    fontSize: "14px",
     textTransform: "capitalize",
     color: theme.palette.primary.main,
-    backgroundColor: theme.palette.grey[300],
-    border: `1px solid ${theme.palette.primary.main}`,
+    backgroundColor: theme.palette.grey[100],
   },
   spacer: {
     flex: 2,
   },
 }));
 
-export default function TripsPageNav() {
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+export default function EnterpriseNav() {
+  let history = useHistory();
   const classes = useStyles();
-  const theme = useTheme();
+
+  const handleClick = () => {
+   
+    history.push("/add-new-trip");
+  
+  };
+
+  // const theme = useTheme();
 
   return (
     <Paper component="form" className={classes.root}>
@@ -81,17 +104,36 @@ export default function TripsPageNav() {
       </IconButton>
       <Divider className={classes.divider} orientation="vertical" />
       <Typography className={classes.textLabel}>Trips</Typography>
-      <Box className={classes.tripCount}>117</Box>
-      <div className={classes.spacer} />
-      <Button
-        className={classes.exportBtn}
-        variant="default"
-        size="small"
-        onClick={handleClickOpen}
-      >
+      <Box className={classes.routeCount}>48</Box>
+
+      <Box className={classes.searchContent}>
+        <InputBase
+          className={classes.input}
+          placeholder=""
+          inputProps={{ "aria-label": "" }}
+        />
+
+        <IconButton
+          type="submit"
+          className={classes.iconButton}
+          aria-label="search"
+        >
+          <SearchIcon />
+        </IconButton>
+      </Box>
+      <Button className={classes.exportBtn} variant="contained" size="small">
         Export
       </Button>
-      <AddRoutes open={open} handleClose={handleClose} />
+      <div className={classes.spacer} />
+      <Button
+        className={classes.addNewTrip}
+        variant="contained"
+        size="large"
+        startIcon={<AddIcon />}
+        onClick={handleClick}
+      >
+        Request New Trip
+      </Button>
     </Paper>
   );
 }

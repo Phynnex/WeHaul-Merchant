@@ -9,60 +9,73 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { Box, Typography } from '@material-ui/core';
 
+import { AiOutlineUserAdd } from "react-icons/ai";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     // borderRadiusTopLeft: 10,
   },
   PaperForm: {
-    borderRadius: '30px',
+    borderRadius: "30px",
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: 'center',
-    // borderRadius: 20,
+    textAlign: "center",
     color: theme.palette.text.secondary,
   },
   FormContent: {
-    padding: theme.spacing(2, 8),
+    padding: theme.spacing(2, 6),
     color: theme.palette.primary.main,
     backgroundColor: theme.palette.grey[50],
   },
   formHeader: {
-    padding: theme.spacing(2, 8),
-    display: 'flex',
-    height: '8rem',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    padding: theme.spacing(1, 8),
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
     color: theme.palette.text.secondary,
-    backgroundColor: '#F2F7FF',
+    backgroundColor: "#F2F7FF",
+  },
+  userIcon: {
+    fontSize: "80px",
+    color: "#40D192",
   },
   divider: {
-    backgroundColor: '#D9D9D9',
-    height: '2px',
+    backgroundColor: "#8AADDC",
+    height: "2px",
   },
   titleText: {
     color: theme.palette.primary.main,
-    fontWeight: '600',
+    fontWeight: "600",
+    fontSize: "24px",
+    width: "150px",
   },
   labelText: {
     color: theme.palette.primary.main,
-    fontWeight: '300',
-    marginBottom: '0.6rem',
+    fontWeight: "300",
+    marginTop: "0.4rem",
   },
   inputStyles: {
-    backgroundColor: '#F0F0F0',
-    marginBottom: '0.6rem',
-    borderColor: theme.palette.primary.main,
+    backgroundColor: "#F0F0F0",
+    marginBottom: "0.3rem",
+    borderColor: "#8AADDC",
+    height: "30px",
   },
 
   submitBtn: {
-    width: '100%',
-    height: '3.5rem',
-    fontWeight: '600',
-    fontSize: '1.5rem',
-    marginBottom: '.8rem',
-    textTransform: 'capitalize',
+    width: "100%",
+    height: "3.5rem",
+    fontWeight: "600",
+    fontSize: "1.2rem",
+    marginTop: "1rem",
+    textTransform: "capitalize",
+    backgroundColor: "#40D192",
+    color: "#FFFFFF",
+    transition: "all 1s",
+    "&:hover": {
+      backgroundColor: theme.palette.primary.main,
+    },
   },
 }));
 
@@ -76,6 +89,7 @@ export default function AddNewCustomerForm() {
           <Typography className={classes.titleText} variant="h4">
             Add New Customer
           </Typography>
+          <AiOutlineUserAdd className={classes.userIcon} />
         </div>
         <Divider className={classes.divider} />
         <div className={classes.FormContent}>
@@ -106,7 +120,7 @@ export default function AddNewCustomerForm() {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <Typography className={classes.labelText}>
                 Phone Number
               </Typography>
@@ -121,39 +135,23 @@ export default function AddNewCustomerForm() {
               />
             </Grid>
 
-            <Grid item xs={12} sm={6}>
-              <Typography className={classes.labelText}>Gender</Typography>
+            <Grid item xs={12}>
+              <Typography className={classes.labelText}>
+                Drop Off Address
+              </Typography>
               <TextField
                 className={classes.inputStyles}
-                id="outlined-select-currency-native"
-                select
+                type="number"
+                error={false}
+                id="outlined-error-helper-text"
                 helperText=""
-                SelectProps={{
-                  native: true,
-                }}
                 variant="outlined"
                 fullWidth
-              >
-                <option value="" selected disabled>
-                  Choose Gender
-                </option>
-                {[
-                  { label: 'Female', value: 'female' },
-                  { label: 'Male', value: 'male' },
-                ].map((option, ind) => (
-                  <option key={ind} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </TextField>
+              />
             </Grid>
           </Grid>
           <Box mt={2}>
-            <Button
-              className={classes.submitBtn}
-              variant="contained"
-              color="primary"
-            >
+            <Button className={classes.submitBtn} variant="contained">
               Add Customer
             </Button>
           </Box>

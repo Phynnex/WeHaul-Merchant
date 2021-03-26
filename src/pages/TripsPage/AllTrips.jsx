@@ -23,39 +23,46 @@ import Paper from "@material-ui/core/Paper";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { FaEye } from "react-icons/fa";
-import { FaTelegramPlane } from "react-icons/fa";
+import { RiChatVoiceLine } from "react-icons/ri";
 // import { usersApiEndPoint } from "../../utils/api";
 // import Preloader from "../../components/Preloader/Preloader";
 // import MetaDecorator from "../../components/MetaDecorator/MetaDecorator";
 // import { setSnackbar } from "../../redux/actions/uiActions";
 const headCells = [
   {
-    id: "ID",
-    label: "ID",
+    id: "Pick Up",
+    label: "Pick Up",
   },
   {
-    id: "User",
-    label: "User",
+    id: "Drop Off",
+    label: "Drop Off",
   },
   {
-    id: "Origin",
-    label: "Origin",
-  },
-  {
-    id: "Destination",
-    label: "Destination",
-  },
-  {
-    id: "Processed by",
-    label: "Processed by",
+    id: "Driver",
+    label: "Driver",
   },
   {
     id: "Status",
     label: "Status",
   },
-  { id: "Vehicle Type", label: "Vehicle Type" },
-  { id: "Pickup Date", label: "Pickup Date" },
-  { id: "Amount", label: "Amount" },
+  {
+    id: "Vehicle Type",
+    label: "Vehicle Type",
+  },
+  {
+    id: "Goods Description",
+    label: "Goods Description",
+  },
+  { 
+    id: "Customer Name", 
+    label: "Customer Name"
+  },
+  { id: "Pickup Date",
+   label: "Pickup Date"
+  },
+  { id: "Total Amount",
+   label: "Total Amount"
+  },
   {
     id: "Action",
     label: "Action",
@@ -171,18 +178,18 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
   },
   textColor: {
-    color: theme.palette.primary.main,
+    color: "#6B6B6B",
     fontFamily: "Montserrat",
     fontWeight: "500",
   },
   tableHeaderText: {
-    color: theme.palette.primary.main,
+    color: "#4B70AA",
     fontFamily: "Montserrat",
     fontWeight: "bold",
   },
   sendButton: {
     padding: theme.spacing(2, 1),
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: "#40D192",
     borderRadius: 3,
     // padding: -10,
     height: 16,
@@ -291,7 +298,7 @@ export default function AllTrips() {
                     key={index}
                   >
                     <TableCell className={classes.textColor} align="left">
-                      bgoGuWJtrjiSTR8LjwoA
+                      Ajah Market Lagos, Lekki, Nigeria
                     </TableCell>
                     <TableCell className={classes.textColor}>
                       {/* {row.image && (
@@ -302,23 +309,12 @@ export default function AllTrips() {
                           />
                         )} */}
                       {/* {!row.image && ( */}
-                      Eniola Roland
+                      Ikeja City Mall, Obafemi Awolowo Way, Ikeja, Nigeria
                       {/* )} */}
                     </TableCell>
                     <TableCell className={classes.textColor} align="left">
-                      Ajah Market Lagos Lekki, Nigeria
+                      Driver User
                     </TableCell>
-                    <TableCell className={classes.textColor} align="left">
-                      {/* userImageStyle */}
-                      {/* {row.lastname} */}
-                      Ikeja City Mall, Obafemi Awolowo Way, Ikeja Nigeria
-                    </TableCell>
-                    <TableCell className={classes.textColor} align="left">
-                      {/* userImageStyle */}
-                      {/* {row.lastname} */}
-                      Eniola Roland
-                    </TableCell>
-
                     <TableCell className={classes.textColor}>
                       {/* {row.phone ? row.phone : "Not Provided"} */}
                       {index === 0 && (
@@ -346,6 +342,18 @@ export default function AllTrips() {
                       {/* {row.phone ? row.phone : "Not Provided"} */}
                       Lorry
                     </TableCell>
+
+                    <TableCell className={classes.textColor} align="left">
+                      {/* userImageStyle */}
+                      {/* {row.lastname} */}
+                      Cake delivery
+                    </TableCell>
+                    <TableCell className={classes.textColor} align="left">
+                      {/* userImageStyle */}
+                      {/* {row.lastname} */}
+                      John Doe
+                    </TableCell>
+
                     <TableCell className={classes.textColor}>
                       {/* {row.phone ? row.phone : "Not Provided"} */}
                       Aug 1, 2021
@@ -365,7 +373,7 @@ export default function AllTrips() {
                         </IconButton>
                         &nbsp;&nbsp;
                         <IconButton className={classes.sendButton}>
-                          <FaTelegramPlane size="30" color="#FFFFFF" />
+                          <RiChatVoiceLine size="18" color="#FFFFFF" />
                         </IconButton>
                       </Box>
                     </TableCell>

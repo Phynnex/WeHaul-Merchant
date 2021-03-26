@@ -147,228 +147,321 @@ function AddNewEnterpriseForm() {
     }
   };
 
+
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <Paper className={classes.formContainerPaper}>
-        <Box p={2}>
-          {" "}
-          <Typography className={classes.formTitle} variant="h6">
-            Add New Enterprise
-          </Typography>
-        </Box>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={enterpriseSchema}
-          validateOnBlur={true}
-          validateOnChange={true}
-          onSubmit={(values, helpers) => console.log(values)}
-        >
-          {({ errors, touched, handleBlur, handleChange, setFieldValue }) => (
-            <Form>
-              <Paper elevation={3} className={classes.formPaperInner}>
-                <Box p={2}>
-                  {" "}
-                  <Typography className={classes.formTitle} variant="h6">
-                    Personal Information
-                  </Typography>
-                </Box>
-                <Grid container>
-                  <Grid item xs={12} sm={6}>
-                    <Box p={2}>
-                      <label className={classes.label} htmlFor="fullName">
-                        Full Name
-                      </label>
-                      <TextField
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={errors.fullName && touched.fullName}
-                        helperText={touched.fullName && errors.fullName}
-                        id="fullName"
-                        variant="outlined"
-                        fullWidth
-                        name="fullName"
-                        required
-                      />
-                    </Box>
+    <>
+      <div className={classes.root}>
+        <Paper className={classes.formContainerPaper}>
+          <Box p={2}>
+            {" "}
+            <Typography className={classes.formTitle} variant="h6">
+              Add New Enterprise
+            </Typography>
+          </Box>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={enterpriseSchema}
+            validateOnBlur={true}
+            validateOnChange={true}
+            onSubmit={(values, helpers) => console.log(values)}
+          >
+            {({ errors, touched, handleBlur, handleChange, setFieldValue }) => (
+              <Form>
+                <Paper elevation={3} className={classes.formPaperInner}>
+                  <Box p={2}>
+                    {" "}
+                    <Typography className={classes.formTitle} variant="h6">
+                      Personal Information
+                    </Typography>
+                  </Box>
+                  <Grid container>
+                    <Grid item xs={12} sm={6}>
+                      <Box p={2}>
+                        <label className={classes.label} htmlFor="fullName">
+                          Full Name
+                        </label>
+                        <TextField
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          error={errors.fullName && touched.fullName}
+                          helperText={touched.fullName && errors.fullName}
+                          id="fullName"
+                          variant="outlined"
+                          fullWidth
+                          name="fullName"
+                          required
+                        />
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <Box p={2}>
+                        <label className={classes.label} htmlFor="phoneNumber">
+                          Phone Number
+                        </label>
+                        <TextField
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          error={errors.phoneNumber && touched.phoneNumber}
+                          helperText={touched.phoneNumber && errors.phoneNumber}
+                          id="phoneNumber"
+                          variant="outlined"
+                          fullWidth
+                          name="phoneNumber"
+                          type="tel"
+                          required
+                        />
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <Box p={2}>
+                        <label className={classes.label} htmlFor="email">
+                          Email Address
+                        </label>
+                        <TextField
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          error={errors.email && touched.email}
+                          helperText={touched.email && errors.email}
+                          id="email"
+                          variant="outlined"
+                          fullWidth
+                          name="email"
+                          type="email"
+                          required
+                        />
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <Box p={2}>
+                        <label className={classes.label} htmlFor="address">
+                          Address
+                        </label>
+                        <TextField
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          error={errors.address && touched.address}
+                          helperText={touched.address && errors.address}
+                          id="address"
+                          variant="outlined"
+                          fullWidth
+                          name="address"
+                          type="address"
+                          required
+                        />
+                      </Box>
+                    </Grid>
                   </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <Box p={2}>
-                      <label className={classes.label} htmlFor="phoneNumber">
-                        Phone Number
-                      </label>
-                      <TextField
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={errors.phoneNumber && touched.phoneNumber}
-                        helperText={touched.phoneNumber && errors.phoneNumber}
-                        id="phoneNumber"
-                        variant="outlined"
-                        fullWidth
-                        name="phoneNumber"
-                        type="tel"
-                        required
-                      />
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <Box p={2}>
-                      <label className={classes.label} htmlFor="email">
-                        Email Address
-                      </label>
-                      <TextField
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={errors.email && touched.email}
-                        helperText={touched.email && errors.email}
-                        id="email"
-                        variant="outlined"
-                        fullWidth
-                        name="email"
-                        type="email"
-                        required
-                      />
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <Box p={2}>
-                      <label className={classes.label} htmlFor="address">
-                        Address
-                      </label>
-                      <TextField
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={errors.address && touched.address}
-                        helperText={touched.address && errors.address}
-                        id="address"
-                        variant="outlined"
-                        fullWidth
-                        name="address"
-                        type="address"
-                        required
-                      />
-                    </Box>
-                  </Grid>
-                </Grid>
-              </Paper>
-              <br />
-              <Paper elevation={3} className={classes.formPaperInner}>
-                <Box p={2}>
-                  {" "}
-                  <Typography className={classes.formTitle} variant="h6">
-                    Business Information
-                  </Typography>
-                </Box>
-                <Grid container>
-                  <Grid item xs={12} sm={6}>
-                    <Box p={2}>
-                      <label className={classes.label} htmlFor="businessName">
-                        Business Name
-                      </label>
-                      <TextField
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={errors.businessName && touched.businessName}
-                        helperText={touched.businessName && errors.businessName}
-                        id="businessName"
-                        variant="outlined"
-                        fullWidth
-                        name="businessName"
-                        required
-                      />
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <Box p={2}>
-                      <label
-                        className={classes.label}
-                        htmlFor="businessPhoneNumber"
-                      >
-                        Business Phone Number
-                      </label>
-                      <TextField
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        error={
-                          errors.businessPhoneNumber &&
-                          touched.businessPhoneNumber
-                        }
-                        helperText={
-                          touched.businessPhoneNumber &&
-                          errors.businessPhoneNumber
-                        }
-                        id="businessPhoneNumber"
-                        variant="outlined"
-                        fullWidth
-                        name="businessPhoneNumber"
-                        type="tel"
-                        required
-                      />
-                    </Box>
-                  </Grid>
-                </Grid>
-
-                <Grid container>
-                  <Grid container item xs={12} sm={6}>
-                    <Grid item xs={12} sm={12}>
+                </Paper>
+                <br />
+                <Paper elevation={3} className={classes.formPaperInner}>
+                  <Box p={2}>
+                    {" "}
+                    <Typography className={classes.formTitle} variant="h6">
+                      Business Information
+                    </Typography>
+                  </Box>
+                  <Grid container>
+                    <Grid item xs={12} sm={6}>
+                      <Box p={2}>
+                        <label className={classes.label} htmlFor="businessName">
+                          Business Name
+                        </label>
+                        <TextField
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          error={errors.businessName && touched.businessName}
+                          helperText={
+                            touched.businessName && errors.businessName
+                          }
+                          id="businessName"
+                          variant="outlined"
+                          fullWidth
+                          name="businessName"
+                          required
+                        />
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
                       <Box p={2}>
                         <label
                           className={classes.label}
-                          htmlFor="businessAddress"
+                          htmlFor="businessPhoneNumber"
                         >
-                          Business Address
+                          Business Phone Number
                         </label>
                         <TextField
                           onChange={handleChange}
                           onBlur={handleBlur}
                           error={
-                            errors.businessAddress && touched.businessAddress
+                            errors.businessPhoneNumber &&
+                            touched.businessPhoneNumber
                           }
                           helperText={
-                            touched.businessAddress && errors.businessAddress
+                            touched.businessPhoneNumber &&
+                            errors.businessPhoneNumber
                           }
-                          id="businessAddress"
+                          id="businessPhoneNumber"
                           variant="outlined"
                           fullWidth
-                          name="businessAddress"
+                          name="businessPhoneNumber"
+                          type="tel"
                           required
                         />
                       </Box>
                     </Grid>
-                    {/* Begining of upload personal id grid container*/}
-                    <Grid container item xs={12}>
+                  </Grid>
+
+                  <Grid container>
+                    <Grid container item xs={12} sm={6}>
+                      <Grid item xs={12} sm={12}>
+                        <Box p={2}>
+                          <label
+                            className={classes.label}
+                            htmlFor="businessAddress"
+                          >
+                            Business Address
+                          </label>
+                          <TextField
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={
+                              errors.businessAddress && touched.businessAddress
+                            }
+                            helperText={
+                              touched.businessAddress && errors.businessAddress
+                            }
+                            id="businessAddress"
+                            variant="outlined"
+                            fullWidth
+                            name="businessAddress"
+                            required
+                          />
+                        </Box>
+                      </Grid>
+                      {/* Begining of upload personal id grid container*/}
+                      <Grid container item xs={12}>
+                        <Grid xs={6} item>
+                          <Box p={2}>
+                            <input
+                              style={{ display: "none" }}
+                              type="file"
+                              ref={personalIdRef}
+                              onChange={(e) => {
+                                setFieldValue(
+                                  "personalIdFile",
+                                  e.target.files[0]
+                                );
+                                setPersonalIdImage(e.target.files[0]);
+                              }}
+                              name="personalIdFile"
+                              id="cacCertificate"
+                              accept="image*"
+                            />{" "}
+                            <label className={classes.label}>Personal ID</label>
+                            <div
+                              className={classes.fileUploadDiv}
+                              htmlFor="businessPhoneNumber"
+                              onClick={handlePersonalIdChange}
+                            >
+                              {personalIdImage ? (
+                                <>
+                                  <img
+                                    src={URL.createObjectURL(personalIdImage)}
+                                    alt="certificate"
+                                    className={classes.certificate}
+                                  />
+                                  <Typography variant="caption">
+                                    {personalIdImage && personalIdImage.name}
+                                  </Typography>
+                                </>
+                              ) : (
+                                <div className={classes.centerStyle}>
+                                  <Typography>
+                                    {" "}
+                                    <HiOutlineUpload size={30} />
+                                    <Typography align="center" variant="body1">
+                                      Upload Personal ID
+                                    </Typography>
+                                    <Typography
+                                      align="center"
+                                      variant="caption"
+                                    >
+                                      image here
+                                    </Typography>
+                                  </Typography>
+                                </div>
+                              )}
+                            </div>
+                          </Box>
+                        </Grid>
+                        <Grid xs={6} item>
+                          <Box mt={2} p={2}>
+                            <label
+                              className={classes.label}
+                              htmlFor="cacRegNumber"
+                            >
+                              CAC Reg Number
+                            </label>
+                            <TextField
+                              onChange={handleChange}
+                              onBlur={handleBlur}
+                              error={
+                                errors.cacRegNumber && touched.cacRegNumber
+                              }
+                              helperText={
+                                touched.cacRegNumber && errors.cacRegNumber
+                              }
+                              id="cacRegNumber"
+                              variant="outlined"
+                              fullWidth
+                              name="cacRegNumber"
+                              type="text"
+                              required
+                            />
+                          </Box>
+                        </Grid>
+                      </Grid>
+                      {/* End of upload personal id information */}
+                    </Grid>
+                    <Grid container item xs={12} sm={6}>
                       <Grid xs={6} item>
                         <Box p={2}>
                           <input
                             style={{ display: "none" }}
                             type="file"
-                            ref={personalIdRef}
+                            ref={cacCertificateRef}
                             onChange={(e) => {
                               setFieldValue(
-                                "personalIdFile",
+                                "cacCertificate",
                                 e.target.files[0]
                               );
-                              setPersonalIdImage(e.target.files[0]);
+                              setCacCertificateImagePreview(e.target.files[0]);
                             }}
-                            name="personalIdFile"
+                            name="cacCertificate"
                             id="cacCertificate"
                             accept="image*"
                           />{" "}
-                          <label className={classes.label}>Personal ID</label>
+                          <label className={classes.label}>
+                            CAC Certificate
+                          </label>
                           <div
                             className={classes.fileUploadDiv}
                             htmlFor="businessPhoneNumber"
-                            onClick={handlePersonalIdChange}
+                            onClick={handleCACCertificateChange}
                           >
-                            {personalIdImage ? (
+                            {cacCertificateImagePreview ? (
                               <>
                                 <img
-                                  src={URL.createObjectURL(personalIdImage)}
+                                  src={URL.createObjectURL(
+                                    cacCertificateImagePreview
+                                  )}
                                   alt="certificate"
                                   className={classes.certificate}
                                 />
                                 <Typography variant="caption">
-                                  {personalIdImage && personalIdImage.name}
+                                  {cacCertificateImagePreview &&
+                                    cacCertificateImagePreview.name}
                                 </Typography>
                               </>
                             ) : (
@@ -377,7 +470,7 @@ function AddNewEnterpriseForm() {
                                   {" "}
                                   <HiOutlineUpload size={30} />
                                   <Typography align="center" variant="body1">
-                                    Upload Personal ID
+                                    CAC Certificate
                                   </Typography>
                                   <Typography align="center" variant="caption">
                                     image here
@@ -389,152 +482,79 @@ function AddNewEnterpriseForm() {
                         </Box>
                       </Grid>
                       <Grid xs={6} item>
-                        <Box mt={2} p={2}>
-                          <label
-                            className={classes.label}
-                            htmlFor="cacRegNumber"
-                          >
-                            CAC Reg Number
+                        <Box p={2}>
+                          <input
+                            style={{ display: "none" }}
+                            type="file"
+                            ref={cacCertificateRefTwo}
+                            onChange={(e) => {
+                              setFieldValue(
+                                "cacCertificateOne",
+                                e.target.files[0]
+                              );
+                              setCacCertificateImagePreviewTwo(
+                                e.target.files[0]
+                              );
+                            }}
+                            name="cacCertificateOne"
+                            id="cacCertificateOne"
+                            accept="image*"
+                          />{" "}
+                          <label className={classes.label}>
+                            CAC Certificate
                           </label>
-                          <TextField
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            error={errors.cacRegNumber && touched.cacRegNumber}
-                            helperText={
-                              touched.cacRegNumber && errors.cacRegNumber
-                            }
-                            id="cacRegNumber"
-                            variant="outlined"
-                            fullWidth
-                            name="cacRegNumber"
-                            type="text"
-                            required
-                          />
+                          <div
+                            className={classes.fileUploadDiv}
+                            onClick={handleCACCertificateChangeTwo}
+                          >
+                            {cacCertificateImagePreviewTwo ? (
+                              <>
+                                <img
+                                  src={URL.createObjectURL(
+                                    cacCertificateImagePreviewTwo
+                                  )}
+                                  alt="certificate"
+                                  className={classes.certificate}
+                                />
+                                <Typography variant="caption">
+                                  {cacCertificateImagePreviewTwo &&
+                                    cacCertificateImagePreviewTwo.name}
+                                </Typography>
+                              </>
+                            ) : (
+                              <div className={classes.centerStyle}>
+                                <Typography>
+                                  {" "}
+                                  <HiOutlineUpload size={30} />
+                                  <Typography align="center" variant="body1">
+                                    CAC Certificate
+                                  </Typography>
+                                  <Typography align="center" variant="caption">
+                                    image here
+                                  </Typography>
+                                </Typography>
+                              </div>
+                            )}
+                          </div>
                         </Box>
                       </Grid>
                     </Grid>
-                    {/* End of upload personal id information */}
                   </Grid>
-                  <Grid container item xs={12} sm={6}>
-                    <Grid xs={6} item>
-                      <Box p={2}>
-                        <input
-                          style={{ display: "none" }}
-                          type="file"
-                          ref={cacCertificateRef}
-                          onChange={(e) => {
-                            setFieldValue("cacCertificate", e.target.files[0]);
-                            setCacCertificateImagePreview(e.target.files[0]);
-                          }}
-                          name="cacCertificate"
-                          id="cacCertificate"
-                          accept="image*"
-                        />{" "}
-                        <label className={classes.label}>CAC Certificate</label>
-                        <div
-                          className={classes.fileUploadDiv}
-                          htmlFor="businessPhoneNumber"
-                          onClick={handleCACCertificateChange}
-                        >
-                          {cacCertificateImagePreview ? (
-                            <>
-                              <img
-                                src={URL.createObjectURL(
-                                  cacCertificateImagePreview
-                                )}
-                                alt="certificate"
-                                className={classes.certificate}
-                              />
-                              <Typography variant="caption">
-                                {cacCertificateImagePreview &&
-                                  cacCertificateImagePreview.name}
-                              </Typography>
-                            </>
-                          ) : (
-                            <div className={classes.centerStyle}>
-                              <Typography>
-                                {" "}
-                                <HiOutlineUpload size={30} />
-                                <Typography align="center" variant="body1">
-                                  CAC Certificate
-                                </Typography>
-                                <Typography align="center" variant="caption">
-                                  image here
-                                </Typography>
-                              </Typography>
-                            </div>
-                          )}
-                        </div>
-                      </Box>
-                    </Grid>
-                    <Grid xs={6} item>
-                      <Box p={2}>
-                        <input
-                          style={{ display: "none" }}
-                          type="file"
-                          ref={cacCertificateRefTwo}
-                          onChange={(e) => {
-                            setFieldValue(
-                              "cacCertificateOne",
-                              e.target.files[0]
-                            );
-                            setCacCertificateImagePreviewTwo(e.target.files[0]);
-                          }}
-                          name="cacCertificateOne"
-                          id="cacCertificateOne"
-                          accept="image*"
-                        />{" "}
-                        <label className={classes.label}>CAC Certificate</label>
-                        <div
-                          className={classes.fileUploadDiv}
-                          onClick={handleCACCertificateChangeTwo}
-                        >
-                          {cacCertificateImagePreviewTwo ? (
-                            <>
-                              <img
-                                src={URL.createObjectURL(
-                                  cacCertificateImagePreviewTwo
-                                )}
-                                alt="certificate"
-                                className={classes.certificate}
-                              />
-                              <Typography variant="caption">
-                                {cacCertificateImagePreviewTwo &&
-                                  cacCertificateImagePreviewTwo.name}
-                              </Typography>
-                            </>
-                          ) : (
-                            <div className={classes.centerStyle}>
-                              <Typography>
-                                {" "}
-                                <HiOutlineUpload size={30} />
-                                <Typography align="center" variant="body1">
-                                  CAC Certificate
-                                </Typography>
-                                <Typography align="center" variant="caption">
-                                  image here
-                                </Typography>
-                              </Typography>
-                            </div>
-                          )}
-                        </div>
-                      </Box>
-                    </Grid>
-                  </Grid>
-                </Grid>
-                <Box className={classes.buttonBox} p={2} mt={2} mb={3}>
-                  <div className={classes.grow} />{" "}
-                  <Button size="large" className={classes.button}>
-                    Save
-                  </Button>
-                </Box>
-              </Paper>
-            </Form>
-          )}
-        </Formik>
-      </Paper>
-    </div>
+                  <Box className={classes.buttonBox} p={2} mt={2} mb={3}>
+                    <div className={classes.grow} />{" "}
+                    <Button size="large" className={classes.button}>
+                      Save
+                    </Button>
+                  </Box>
+                </Paper>
+              </Form>
+            )}
+          </Formik>
+        </Paper>
+      </div>
+    </>
   );
 }
 
 export default AddNewEnterpriseForm;
+

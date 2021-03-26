@@ -9,10 +9,11 @@ import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "20px 4px",
+    padding: "10px 4px",
     display: "flex",
     alignItems: "center",
     width: "auto",
+    marginTop: "30px",
   },
   iconButton: {
     padding: 10,
