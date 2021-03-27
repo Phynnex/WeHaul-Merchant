@@ -8,9 +8,10 @@ import Paper from '@material-ui/core/Paper';
 import CustomCard from '../../components/CustomCard/CustomCard';
 import totalTrip from '../../assets/TotalIcon.svg';
 import canceledIcon from '../../assets/CancelIcon.svg';
-import checkedIcon from '../../assets/CheckedIcon.svg';
-import tripIcon from '../../assets/Trip_Icon.svg';
+import completeIcon from "../../assets/CompleteIcon.svg";
+import ActiveIcon from "../../assets/ActiveIcon.svg";
 import ReusableTopNav from '../../components/TopNavWithHomeLabel';
+import SettingsForm from "./SettingsForm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,6 +60,7 @@ export default function SettingsPage() {
       <br />
 
       <Grid
+        className={classes.UIT}
         container
         spacing={matches ? 3 : 1}
         justify="center"
@@ -67,7 +69,7 @@ export default function SettingsPage() {
         <Grid item xs={12} sm={6} md={3}>
           <CustomCard
             cardBackground="#FFBB00"
-            title="Total Drivers"
+            title="Total Trips"
             count={22}
             icon={totalTrip}
           />
@@ -75,18 +77,18 @@ export default function SettingsPage() {
         <Grid item xs={12} sm={6} md={3}>
           <CustomCard
             cardBackground="#40D192"
-            title="Available Drivers"
+            title="Completed Trips"
             count={48}
-            icon={checkedIcon}
+            icon={completeIcon}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <CustomCard title="Busy Drivers" count={28} icon={tripIcon} />
+          <CustomCard title="Active Trips" count={28} icon={ActiveIcon} />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <CustomCard
             cardBackground="#F3402B"
-            title="Banned Drivers"
+            title="Cancelled Trips"
             count={8}
             icon={canceledIcon}
           />
@@ -95,71 +97,7 @@ export default function SettingsPage() {
       <br />
       <br />
       <ReusableTopNav label="Settings" />
-      <Paper className={classes.root}>
-        <div className={classes.chatContainer}>
-          <Grid xs={12} md={12} sm={10} lg={11} className={classes.chatArea}>
-            <div className={classes.Content}>
-              <Typography
-                className={classes.settingsText}
-                variant="body2"
-                component="h3"
-              >
-                Profile
-              </Typography>
-              <Typography
-                className={classes.settingsText}
-                variant="body2"
-                component="h1"
-              >
-                General
-              </Typography>
-              <Typography
-                className={classes.settingsText}
-                variant="body2"
-                component="h3"
-              >
-                Drivers
-              </Typography>
-              <Typography
-                className={classes.settingsText}
-                variant="body2"
-                component="h3"
-              >
-                Customers
-              </Typography>
-              <Typography
-                className={classes.settingsText}
-                variant="body2"
-                component="h3"
-              >
-                Enterprice
-              </Typography>
-              <Typography
-                className={classes.settingsText}
-                variant="body2"
-                component="h3"
-              >
-                Merchants
-              </Typography>
-              <Typography
-                className={classes.settingsText}
-                variant="body2"
-                component="h3"
-              >
-                Trips
-              </Typography>
-              <Typography
-                className={classes.settingsText}
-                variant="body2"
-                component="h3"
-              >
-                Requests
-              </Typography>
-            </div>
-          </Grid>
-        </div>
-      </Paper>
-      {/* <TripsNav /> */}
+      <SettingsForm />
     </>
   );
 }

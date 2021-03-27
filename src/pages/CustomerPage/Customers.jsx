@@ -34,6 +34,8 @@ import { FaEye } from "react-icons/fa";
 import { GoTrashcan } from "react-icons/go";
 import avatarSvg from "../../assets/enterprise_avatar.svg";
 import CustomersNav from "./CustomersNav";
+import AddRoutes from "../../components/AddRoutesDialog/AddRoutesDialog";
+import AddNewCustomerForm from "./AddNewCustomer";
 
 import completeIcon from "../../assets/CompleteIcon.svg";
 import ActiveIcon from "../../assets/ActiveIcon.svg";
@@ -115,7 +117,7 @@ const rows = [
   },
 ];
 
-export default function AdminCustomer() {
+export default function MerchantCustomer() {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
@@ -217,9 +219,13 @@ export default function AdminCustomer() {
                       className={classes.editButton}
                       variant="contained"
                       color="primary"
+                      onClick={handleClickOpen}
                     >
                       <FaEye size="20" color="#113E82" />
-                    </IconButton>
+                    </IconButton>{" "}
+                    <AddRoutes open={open} handleClose={handleClose}>
+                      <AddNewCustomerForm />
+                    </AddRoutes>
                     &nbsp;&nbsp;
                     <IconButton className={classes.deleButton}>
                       <GoTrashcan size="20" color="#113E82" />
@@ -238,3 +244,4 @@ export default function AdminCustomer() {
     </>
   );
 }
+
