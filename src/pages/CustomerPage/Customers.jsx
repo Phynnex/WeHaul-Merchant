@@ -35,7 +35,7 @@ import { GoTrashcan } from "react-icons/go";
 import avatarSvg from "../../assets/enterprise_avatar.svg";
 import CustomersNav from "./CustomersNav";
 import AddRoutes from "../../components/AddRoutesDialog/AddRoutesDialog";
-import AddNewCustomerForm from "./AddNewCustomer";
+import CustomerProfile from "./CustomerProfileModal";
 
 import completeIcon from "../../assets/CompleteIcon.svg";
 import ActiveIcon from "../../assets/ActiveIcon.svg";
@@ -224,7 +224,7 @@ export default function MerchantCustomer() {
                       <FaEye size="20" color="#113E82" />
                     </IconButton>{" "}
                     <AddRoutes open={open} handleClose={handleClose}>
-                      <AddNewCustomerForm />
+                      <CustomerProfile />
                     </AddRoutes>
                     &nbsp;&nbsp;
                     <IconButton className={classes.deleButton}>

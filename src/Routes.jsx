@@ -11,6 +11,7 @@ import ChatPage from './pages/ChatPage/ChatPage';
 import NotificationPage from "./pages/NotificationPage/NotificationPage";
 import AddNewTrip from "./pages/Request/AddNewTrip";
 import SettingsPage from "./pages/SettingsPage/SettingsPage";
+import WalletPage from "./pages/WalletPage/WalletPage";
 import AddNewEnterprise from "./pages/AddNewEnterpriseForm/AddNewEnterpriseForm";
 // import AddNewDriverForm from './pages/DriversPage/AddNewDriver';
 // import DriverProfileModal from './pages/DriversPage/DriverProfileModal';
@@ -33,6 +34,7 @@ function Routes() {
           <Route exact path="/trips" component={TripsPage} />
           <Route exact path="/notification" component={NotificationPage} />
           <Route exact path="/customers" component={Customers} />
+          <Route exact path="/wallet" component={WalletPage} />
           <Route exact path="/add-new-trip" component={AddNewTrip} />
           <Route exact path="/new-enterprise" component={AddNewEnterprise} />
 
