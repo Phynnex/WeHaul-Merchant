@@ -8,18 +8,20 @@ import { Box, Typography } from "@material-ui/core";
 import { HiCog } from "react-icons/hi";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import driverPassport from "../../assets/profile.jpg";
-import { Link } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     borderRadius: "16px",
   },
   FormContent: {
-    padding: theme.spacing(2, 3),
+    padding: "0 18px 0",
   },
   formHeader: {
     padding: theme.spacing(2, 5),
+    width: "100%",
     display: "flex",
+    justifyContent: "center",
     height: "7rem",
     alignItems: "center",
     color: theme.palette.text.secondary,
@@ -45,11 +47,11 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "5rem",
     color: "#113E82",
   },
-  textPhoneNumber: {
-    border: "1px solid #40D192",
-    borderRadius: "8px",
-    padding: "0",
-  },
+  // textPhoneNumber: {
+  //   width: "auto",
+  //   border: "1px solid #40D192",
+  //   borderRadius: "8px",
+  // },
   tripInfoContainer: {
     display: "flex",
     justifyContent: "space-around",
@@ -153,7 +155,6 @@ export default function DriverProfileModal() {
           </Grid>
           <Box mt={2}>
             <br />
-            <Link to="/drivers/update-details/:driverName/:driverId">
               <Button
                 className={classes.submitBtn}
                 variant="contained"
@@ -161,7 +162,6 @@ export default function DriverProfileModal() {
               >
                 Profile Details
               </Button>
-            </Link>
           </Box>
           <br />
         </div>
