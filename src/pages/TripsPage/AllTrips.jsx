@@ -222,6 +222,10 @@ export default function AllTrips() {
 
   const limit = 100;
 
+  const handleClick = () => {
+    history.push("/trip-details");
+  };
+
   //   const handleSearchProduct = () => {
   //   if(!savingsId) return dispatch(setSnackbar("Search Value cannot be empty", "error"));
 
@@ -368,6 +372,7 @@ export default function AllTrips() {
                           className={classes.editButton}
                           variant="contained"
                           color="primary"
+                          onClick={handleClick}
                         >
                           <FaEye size="32" color="#FFFFFF" />
                         </IconButton>

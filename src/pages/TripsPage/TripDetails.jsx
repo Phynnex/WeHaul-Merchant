@@ -12,7 +12,7 @@ import Chip from "@material-ui/core/Chip";
 import QueryBuilderSharpIcon from "@material-ui/icons/QueryBuilderSharp";
 import BookSharpIcon from "@material-ui/icons/BookSharp";
 import GpsFixedIcon from "@material-ui/icons/GpsFixed";
-import SendIcon from "@material-ui/icons/Send";
+import { FaLocationArrow } from "react-icons/fa";
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import DateRangeRoundedIcon from "@material-ui/icons/DateRangeRounded";
 import LocationOnRoundedIcon from "@material-ui/icons/LocationOnRounded";
@@ -45,11 +45,12 @@ const useStyles = makeStyles((theme) => ({
   userIcon: {
     display: "inline",
     fontSize: "20px",
-    color: theme.palette.grey[400],
+    color: "#113E82",
     marginRight: theme.spacing(1),
   },
   paper: {
     marginBottom: theme.spacing(3),
+    color: "#113E82",
   },
   icon: {
     display: "inline",
@@ -72,6 +73,7 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.primary.main,
     color: theme.palette.grey[50],
     marginBottom: theme.spacing(3),
+    textTransform: "initial",
     transition: "background 0.5s ease-in",
     "&:hover": {
       background: theme.palette.success.main,
@@ -91,6 +93,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "flex-start",
     marginBottom: theme.spacing(1),
+  },
+  formTitle: {
+    fontWeight: "600",
   },
 }));
 
@@ -172,7 +177,7 @@ function InputWithIcon() {
             </Grid>
             <Grid item xs={12} sm={8}>
               <Box className={classes.centerTextBox} mb={2}>
-                <SendIcon className={classes.requestIcon} /> &nbsp;
+                <FaLocationArrow className={classes.requestIcon} /> &nbsp;
                 <Typography component="span" className={classes.coloredTet}>
                   APO Resettlement Area, Abuja, Nigeria
                 </Typography>

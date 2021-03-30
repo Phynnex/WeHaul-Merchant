@@ -12,14 +12,13 @@ import NotificationPage from "./pages/NotificationPage/NotificationPage";
 import AddNewTrip from "./pages/Request/AddNewTrip";
 import SettingsPage from "./pages/SettingsPage/SettingsPage";
 import WalletPage from "./pages/WalletPage/WalletPage";
-import AddNewEnterprise from "./pages/AddNewEnterpriseForm/AddNewEnterpriseForm";
+
 // import AddNewDriverForm from './pages/DriversPage/AddNewDriver';
-// import DriverProfileModal from './pages/DriversPage/DriverProfileModal';
 // import login from './pages/Login/login';
 // import SignupPage from './pages/SignupPage/Signup';
 // import UpdateDriverPage from './pages/DriversPage/UpdateDriverPage/UpdateDriverPage';
 // import RequestSearchPage from './pages/RequestSearchPage/RequestSearchPage';
-// import RequestForm from "./pages/Request/FormTwo";
+import TripDetails from "./pages/TripsPage/TripDetails";
 
 function Routes() {
   return (
@@ -36,23 +35,19 @@ function Routes() {
           <Route exact path="/customers" component={Customers} />
           <Route exact path="/wallet" component={WalletPage} />
           <Route exact path="/add-new-trip" component={AddNewTrip} />
-          <Route exact path="/new-enterprise" component={AddNewEnterprise} />
+          
 
           {/* <Route path="/signup" component={SignupPage} /> */}
           {/* <Route exact path="/add-new-driver" component={AddNewDriverForm} /> */}
+         
           {/* <Route
-            exact
-            path="/drivers/driver-details"
-            component={DriverProfileModal}
-          />
-          <Route
             exact
             path="/drivers/update-details/:driverName/:driverId"
             component={UpdateDriverPage}
           />
-          <Route path="/login" component={login} />
-          <Route path="/search" component={RequestSearchPage} />
-          <Route path="/new-request" component={RequestForm} /> */}
+          <Route path="/login" component={login} /> */}
+          {/* <Route path="/search" component={RequestSearchPage} /> */}
+          <Route path="/trip-details" component={TripDetails} />
         </Switch>
       </Header>
     </Router>
